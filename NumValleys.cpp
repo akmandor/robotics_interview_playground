@@ -1,4 +1,12 @@
 /*
+##############################################
+#          Coding Interview Questions
+#      Created/Modified on: August 23, 2019
+#           Author: Munir Jojo-Verge
+##############################################
+ */
+
+/*
 Gary is an avid hiker. He tracks his hikes meticulously, paying close attention to small details like topography. During his last hike he took exactly  steps. For every step he took, he noted if it was an uphill, , or a downhill,  step. Gary's hikes start and end at sea level and each step up or down represents a  unit change in altitude. We define the following terms:
 
 A mountain is a sequence of consecutive steps above sea level, starting with a step up from sea level and ending with a step down to sea level.
@@ -50,13 +58,15 @@ He enters and leaves one valley.
 using namespace std;
 
 // Complete the countingValleys function below.
-int countingValleys(int n, string s) {
+int countingValleys(int n, string s)
+{
     int valley_cnt = 0;
-    int deepth = 0; // Sea level = 0, < 0 valley, >0 mointain 
-    for (size_t i = 0; i < n; i++){       
-        deepth = deepth + ((s[i] == 'D') ? -1: 1);
-        valley_cnt = valley_cnt + (deepth == -1 ? 1: 0);
-    }    
+    int deepth = 0; // Sea level = 0, < 0 valley, >0 mointain
+    for (size_t i = 0; i < n; i++)
+    {
+        deepth = deepth + ((s[i] == 'D') ? -1 : 1);
+        valley_cnt = valley_cnt + (deepth == -1 ? 1 : 0);
+    }
     return valley_cnt;
 }
 
