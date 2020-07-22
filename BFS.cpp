@@ -120,13 +120,9 @@ class Graph {
             open.push(neig);
             dist_from_start[neig] = dist_from_start[curr_node] + edge_d;
           }
-          if (map[curr_node] == DIRT) {
-            dirt_dist.push_back(dist_from_start[neig])
-          }
         }
       }
     }
-    return std::min(dirt_dist);
     // std::sort(dist_from_start.begin(), dist_from_start.end());
     // dist_from_start.erase(dist_from_start.begin() + start,
     //                       dist_from_start.begin() + start + 1);
