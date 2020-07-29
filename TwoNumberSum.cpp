@@ -43,10 +43,7 @@ std::vector<int> twoNumberSum_brute(std::vector<int> myList, int targetSum) {
 vector<int> twoNumberSum(vector<int> array, int targetSum) {
   // Write your code here.
   std::unordered_map<int, int> map;
-  for (size_t i = 0; i < array.size(); i++) {
-    map.insert(make_pair(targetSum - array[i], array[i]));
-  }
-
+  
   for (size_t i = 0; i < array.size(); i++) {
     auto search = map.find(array[i]);
     if (search != map.end()) {
@@ -54,6 +51,11 @@ vector<int> twoNumberSum(vector<int> array, int targetSum) {
                   ? std::vector<int>{array[i], search->second}
                   : std::vector<int>{search->second, array[i]});
     }
+    else
+    {
+      map.insert(make_pair(targetSum - array[i], array[i]));
+    }
+    
   }
 
   return std::vector<int>{};

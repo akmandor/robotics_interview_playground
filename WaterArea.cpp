@@ -12,14 +12,14 @@ Each non-zero integer represents the height of a 2D pillar of width 1.
 Imagine water being poured over all of the pillars and return the surface area
 of the water trapped between the pillars viewed from the front (2D). Note that
 spilled water should be ignored.
-           ___
-           | |_______________
-      _____| |           | |
-      | |  | |     ___   | |
-      | |  | |     | |   | |
-______|_|__|_|__ __|_|___|_|___________________________________
-    0  3 0  5  0  0 2  0  4
-Ans:     3     4  4 2  4     = 17
+                       ___
+                       | |_______________
+                  _____| |           | |
+                  | |  | |     ___   | |
+                  | |  | |     | |   | |
+            ______|_|__|_|__ __|_|___|_|______________
+pilar height    0  3 0  5  0  0 2  0  4
+Water above:         3     4  4 2  4     = 17
    The answer for the above example would be:
    3 + 4 + 4 + 2 + 4 = 17
  */
@@ -38,7 +38,7 @@ int waterArea(vector<int> heights) {
   // every index
   vector<int> MaxLeft(n_pilars, 0);
   MaxLeft[0] = heights[0];
-  for (size_t i = 1; i < n_pilars; i++) {
+  for (size_t i = 1; i < n_pilars; ++i) {
     MaxLeft[i] = max(MaxLeft[i - 1], heights[i]);
   }
 
@@ -46,7 +46,7 @@ int waterArea(vector<int> heights) {
   // index
   vector<int> MaxRight(n_pilars, 0);
   MaxRight[n_pilars - 1] = heights[n_pilars - 1];
-  for (int i = n_pilars - 2; i >= 0; i--) {
+  for (int i = n_pilars - 2; i >= 0; --i) {
     MaxRight[i] = max(MaxRight[i + 1], heights[i]);
   }
 
