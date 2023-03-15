@@ -67,6 +67,9 @@ void search(Map map, Planner planner) {
 }
 
 int main() {
+
+  cout << "PROBLEM: A_star" << endl;
+
   // Instantiate a planner and map objects
   Map map;
   Planner planner;
